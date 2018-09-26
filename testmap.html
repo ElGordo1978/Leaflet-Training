@@ -27,7 +27,7 @@
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script>
         var counties = $.ajax({
-            url: "https://raw.githubusercontent.com/ElGordo1978/MappingAPI/master/states.geoJSON",
+            url: "https://raw.githubusercontent.com/ElGordo1978/Leaflet-Training/master/us-states-two.geoJSON",
             dataType: "json",
             success: console.log("County data successfully loaded."),
             error: function(xhr) {
@@ -45,6 +45,11 @@
             // Add requested external GeoJSON to map
             var kyCounties = L.geoJSON(counties.responseJSON).addTo(map);
         });
+
+        L.marker([36.7783, -119.4179])
+        	.bindLabel('A sweet static label!', { noHide: true })
+        	.addTo(map);
+
     </script>
 </body>
 
